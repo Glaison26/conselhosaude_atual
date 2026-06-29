@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h5>Qual o tipo de Cadastro?</h5>
                     </p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="segmento" id="seg1" Value="1">
+                        <input class="form-check-input" type="radio" name="segmento" required id="seg1" Value="1">
                         <label class="form-check-label" for="seg1">
                             1. Cadastro para usuários do SUS
                         </label>

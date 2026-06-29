@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h5>Você é :</h5>
                     </p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="tipo" id="tipoeleitor" Value="Eleitor">
+                        <input class="form-check-input" type="radio" name="tipo" required id="tipoeleitor" Value="Eleitor">
                         <label class="form-check-label" for="tipoeleitor">
                             Eleitor
                         </label>

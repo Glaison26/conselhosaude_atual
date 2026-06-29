@@ -34,23 +34,17 @@
     </div>
 
     <div class="container -my5">
-        <div class="container">
-            <div class="alert alert-success">
-                <strong> Prefeitura Municipal de Sabará - Pagina Inicial da plataforma. Clique na opção desejada abaixo.</strong>
-            </div>
-        </div>
-
+       <br><br>
         <div class="panel default class" class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
             <div class="panel-heading">
-                <img class="rounded mx-auto d-block" class="img-responsive" src="\conselhosaude\img\prefeitura.jpg" class="img-fluid" style="height :100px" style="width:70px">
+                <img class="rounded mx-auto d-block" class="img-responsive" src="\conselhosaude\img\prefeitura.png" class="img-fluid" style="height :100px" style="width:70px">
             </div>
         </div>
         <nav class="navbar ">
             <div class="container-fluid" class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
                 <br>
-                <a id="insc" class="btn btn-success" href="/conselhosaude/segmento.php"><span class="glyphicon glyphicon-edit"></span> Inscrição</a>
-                <a id="voto" class="btn btn-primary" href="/conselhosaude/cpf_votacao.php"><span class="glyphicon glyphicon-inbox"></span> Votação</a>
-                <a class="btn btn-info " href="/conselhosaude/senha.php"><span class="glyphicon glyphicon-off"></span> Resultados</a>
+                <a id="insc" class="btn btn-success btn-lg" href="/conselhosaude/segmento.php"><span class="glyphicon glyphicon-edit"></span> Fazer Inscrição</a>
+              
             </div>
         </nav>
 
