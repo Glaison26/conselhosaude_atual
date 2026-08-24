@@ -2,6 +2,7 @@
 
 include("../conexao.php");
 
+
 $c_erro = "";
 $c_cpf = "";
 
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // mensagem de erro para tela de entrada de cpf
             echo "<script>
                 alert('$c_erro');
-                window.location.href = 'cpf_votacao.php';
+               window.location.href = 'cpf_votacao.php';
                 </script>";
         } else {
             // passou pelos teste chamo arquivo para votar com os dados
