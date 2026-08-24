@@ -403,6 +403,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         <label class="col-sm-12 col-form-label">Escolaridade</label>
                         <div class="col-sm-6">
                             <select class="form-control form-control-lg" id="escolaridade" name="escolaridade">
+                                <option>Selecione</option>
+
                                 <option>Curso Primário</option>
                                 <option>Primeiro Grau Incompleto</option>
                                 <option>Primeiro Grau Completo</option>

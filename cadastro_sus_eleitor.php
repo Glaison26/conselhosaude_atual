@@ -2,7 +2,7 @@
 session_start();
 $c_escolha = @$_POST['unidade'];
 $c_nome = "";
-$c_datanasc = "";
+//$c_datanasc = "";
 $c_rg = "";
 $c_cartaosus = "";
 $c_endereco = "";
@@ -24,7 +24,7 @@ $c_nomefoto = "";
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $c_nome = "";
-    $c_datanasc = "";
+    //$c_datanasc = "";
     $c_rg = "";
     $c_cartaosus = "";
     $c_endereco = "";
@@ -167,13 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
     <script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#telefone").mask("(99)9999-9999");
-            $("#cep").mask("99.999-999");
-            $("#datanasc").mask("99/99/9999")
-        });
-    </script>
+
 </head>
 
 <body>
@@ -197,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <div class="container -my5">
             <div class="row mb-3" class="container">
                 <div class="alert alert-success">
-                    <strong>Entre com os seus dados e clique em enviar dados no final do formulário para finalizar </strong>
+                    <strong>Entre com os seus dados e clique em enviar dados no final do formulário para finalizar</strong>
 
                 </div>
             </div>
@@ -211,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                     <div class="row mb-3" name="divapresentacao" <?php echo $c_esconde ?>>
                         <label>Arquivo de foto: </label>
-                        <input type="file" name="arquivo" accept="image/*"><br><br>
+                        <input type="file"  name="arquivo" accept="image/*"><br><br>
                         <button type="submit" name="btnfoto" id="btnfoto" class="btn btn-primary"><span class='glyphicon glyphicon-open-file'></span> Enviar Foto</button>
                         <h5>Foto do Candidato</h5>
                         <div class="panel default class" class="row col-xs-12 col-sm-20 col-md-12 col-lg-20" align="center">
@@ -221,7 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         <label class="col-sm-12 col-form-label">
                             Breve apresentação do Candidato</label>
                         <div class="col-sm-16">
-                            <textarea class="form-control" id="apresentacao" name="apresentacao" rows="10"><?php echo $c_apresentacao; ?></textarea>
+                            <textarea class="form-control"  id="apresentacao" name="apresentacao" rows="10"><?php echo $c_apresentacao; ?></textarea>
                         </div>
 
                         <br>
@@ -231,37 +225,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <h5>Unidade básica de saúde de referência</h5>
                     </p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="unidade" id="unid1" Value="Regional Ana Lúcia">
+                        <input   class="form-check-input" type="radio" name="unidade" id="unid1" Value="Regional Ana Lúcia" value="<?php echo $c_unidade; ?>">
                         <label class="form-check-label" for="unid1">
                             Regional Ana Lúcia
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="unidade" id="unid2" Value="Regional Gal. Carneiro">
+                        <input   class="form-check-input" type="radio" name="unidade" id="unid2" Value="Regional Gal. Carneiro" value="<?php echo $c_unidade; ?>">
                         <label class="form-check-label" for="unid2">
                             Regional Gal. Carneiro
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="unidade" id="unid3" Value="Regional Roça Grande">
+                        <input   class="form-check-input" type="radio" name="unidade" id="unid3" Value="Regional Roça Grande" value="<?php echo $c_unidade; ?>">
                         <label class="form-check-label" for="unid3">
                             Regional Roça Grande
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="unidade" id="unid4" Value="Regional Nossa Sra. De Fátima">
+                        <input   class="form-check-input" type="radio" name="unidade" id="unid4" Value="Regional Nossa Sra. De Fátima" value="<?php echo $c_unidade; ?>">
                         <label class="form-check-label" for="unid4">
                             Regional Nossa Sra. De Fátima
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="unidade" id="unid5" Value="Regional Ravena, Borba Gato, Borges, Amélia, Moreira e Adjacências">
+                        <input   class="form-check-input" type="radio" name="unidade" id="unid5" Value="Regional Ravena, Borba Gato, Borges, Amélia, Moreira e Adjacências" value="<?php echo $c_unidade; ?>">
                         <label class="form-check-label" for="unid5">
                             Regional Ravena, Borba Gato, Borges, Amélia, Moreira e Adjacências
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="unidade" id="unid6" Value="Regional Sede e adjacências">
+                        <input   class="form-check-input" type="radio" name="unidade" id="unid6" Value="Regional Sede e adjacências" value="<?php echo $c_unidade; ?>">
                         <label class="form-check-label" for="unid6">
                             Regional Sede e adjacências
                         </label>
@@ -270,63 +264,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <div class="row mb-3">
                         <label class="col-sm-3 col-form-label">Nome Completo</label>
                         <div class="col-sm-12">
-                            <input type="text" maxlength="120" class="form-control" name="nome" value="<?php echo $c_nome; ?>">
+                            <input type="text"   maxlength="120" class="form-control" name="nome" value="<?php echo $c_nome; ?>">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">Data Nascimento</label>
                         <div class="col-sm-5">
-                            <input type="text" maxlength="10" class="form-control" name="datanasc" id="datanasc" value="<?php echo $c_datanasc; ?>">
+                            <input type="date"   maxlength="10" class="form-control" name="datanasc" id="datanasc">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">Número do RG</label>
                         <div class="col-sm-5">
-                            <input type="text" maxlength="20" class="form-control" name="rg" value="<?php echo $c_rg; ?>">
+                            <input type="text"   maxlength="20" class="form-control" name="rg" value="<?php echo $c_rg; ?>">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">CPF</label>
                         <div class="col-sm-5">
-                            <input type="text" placeholder="apenas números" maxlength="11" class="form-control" name="cpf" value="<?php echo $c_cpf; ?>">
+                            <input type="text"   placeholder="apenas números" maxlength="11" class="form-control" name="cpf" value="<?php echo $c_cpf; ?>">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">No. Cartão SUS</label>
                         <div class="col-sm-5">
-                            <input type="text" placeholder="apenas números" maxlength="15" class="form-control" name="cartaosus" value="<?php echo $c_cartaosus; ?>">
+                            <input type="text"   placeholder="apenas números" maxlength="15" class="form-control" name="cartaosus" value="<?php echo $c_cartaosus; ?>">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">Endereço</label>
                         <div class="col-sm-12">
-                            <input type="text" maxlength="120" class="form-control" name="endereco" value="<?php echo $c_endereco; ?>">
+                            <input type="text"   maxlength="120" class="form-control" name="endereco" value="<?php echo $c_endereco; ?>">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">Bairro</label>
                         <div class="col-sm-12">
-                            <input type="text" maxlength="100" class="form-control" name="bairro" value="<?php echo $c_bairro; ?>">
+                            <input type="text"   maxlength="100" class="form-control" name="bairro" value="<?php echo $c_bairro; ?>">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">Naturalidade</label>
                         <div class="col-sm-12">
-                            <input type="text" maxlength="50" class="form-control" name="naturalidade" value="<?php echo $c_naturalidade; ?>">
+                            <input type="text"   maxlength="50" class="form-control" name="naturalidade" value="<?php echo $c_naturalidade; ?>">
                         </div>
                     </div>
                     <br>
                     <div class=" row mb-3">
                         <label class="col-sm-12 col-form-label">Escolaridade</label>
                         <div class="col-sm-6">
-                            <select class="form-control form-control-lg" id="escolaridade" name="escolaridade">
+                            <select class="form-control form-control-lg" id="escolaridade" name="escolaridade"  >
+                                <option>Selecione</option>
                                 <option>Curso Primário</option>
                                 <option>Primeiro Grau Incompleto</option>
                                 <option>Primeiro Grau Completo</option>

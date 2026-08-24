@@ -37,7 +37,7 @@
         </div>
         <div class="panel default class" class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
             <div class="panel-heading">
-                <img class="img-responsive" src="\conselhosaude\img\prefeitura.jpg" class="img-fluid" style="height :80px" style="width:100px">
+                <img class="img-responsive" src="\conselhosaude\img\prefeitura.png" class="img-fluid" style="height :80px" style="width:100px">
             </div>
 
         </div>

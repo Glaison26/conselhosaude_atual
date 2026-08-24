@@ -169,13 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
     <script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#telefone").mask("(99)9999-9999");
-            $("#cep").mask("99.999-999");
-            $("#datanasc").mask("99/99/9999")
-        });
-    </script>
+   
 </head>
 
 <body>
@@ -199,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <div class="container -my5">
             <div class="row mb-3" class="container">
                 <div class="alert alert-success">
-                    <strong>Entre com os seus dados e clique em enviar dados no final do formulário para finalizar </strong>
+                    <strong>Entre com os seus dados e clique em enviar dados no final do formulário para finalizar xxx</strong>
                 </div>
             </div>
         </div>
@@ -230,77 +224,78 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <br>
                             <label class="col-sm-12 col-form-label">Nome Completo</label>
                             <div class="col-sm-12">
-                                <input type="text" maxlength="120" class="form-control" name="nome" value="<?php echo $c_nome; ?>">
+                                <input type="text"   maxlength="120" class="form-control" name="nome" value="<?php echo $c_nome; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Data Nascimento</label>
                             <div class="col-sm-5">
-                                <input type="text" maxlength="10" class="form-control" name="datanasc" id="datanasc" value="<?php echo $c_datanasc; ?>" />
+                                <input type="date"   maxlength="10" class="form-control" name="datanasc" id="datanasc" value="<?php echo $c_datanasc; ?>" />
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Número do RG</label>
                             <div class="col-sm-5">
-                                <input type="text" maxlength="20" class="form-control" name="rg" value="<?php echo $c_rg; ?>">
+                                <input type="text"   maxlength="20" class="form-control" name="rg" value="<?php echo $c_rg; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">CPF</label>
                             <div class="col-sm-5">
-                                <input type="text" placeholder="apenas números" maxlength="11" class="form-control" name="cpf" value="<?php echo $c_cpf; ?>">
+                                <input type="text"   placeholder="apenas números" maxlength="11" class="form-control" name="cpf" value="<?php echo $c_cpf; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Endereço</label>
                             <div class="col-sm-12">
-                                <input type="text" maxlength="120" class="form-control" name="endereco" value="<?php echo $c_endereco; ?>">
+                                <input type="text"   maxlength="120" class="form-control" name="endereco" value="<?php echo $c_endereco; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Bairro</label>
                             <div class="col-sm-12">
-                                <input type="text" maxlength="100" class="form-control" name="bairro" value="<?php echo $c_bairro; ?>">
+                                <input type="text"   maxlength="100" class="form-control" name="bairro" value="<?php echo $c_bairro; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Estabelecimento de saúde Pública ou Conveniado ao SUS em que trabalha</label>
                             <div class="col-sm-12">
-                                <input type="text" maxlength="120" class="form-control" name="estabelecimento" value="<?php echo $c_estabelecimento; ?>">
+                                <input type="text"   maxlength="120" class="form-control" name="estabelecimento" value="<?php echo $c_estabelecimento; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Endereço do local de trabalho</label>
                             <div class="col-sm-12">
-                                <input type="text" maxlength="120" class="form-control" name="endertrab" value="<?php echo $c_endertrab; ?>">
+                                <input type="text"   maxlength="120" class="form-control" name="endertrab" value="<?php echo $c_endertrab; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Vinculo Empregaticio</label>
                             <div class="col-sm-12">
-                                <input type="text" maxlength="100" class="form-control" name="vinculo" value="<?php echo $c_vinculo; ?>">
+                                <input type="text"   maxlength="100" class="form-control" name="vinculo" value="<?php echo $c_vinculo; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Cargo exercido na Atualidade</label>
                             <div class="col-sm-12">
-                                <input type="text" maxlength="100" class="form-control" name="cargo" value="<?php echo $c_cargo; ?>">
+                                <input type="text"   maxlength="100" class="form-control" name="cargo" value="<?php echo $c_cargo; ?>">
                             </div>
                         </div>
                         <br>
                         <div class=" row mb-3">
                             <label class="col-sm-12 col-form-label">Escolaridade</label>
                             <div class="col-sm-6">
-                                <select class="form-control form-control-lg" id="escolaridade" name="escolaridade">
+                                <select class="form-control form-control-lg" id="escolaridade" name="escolaridade"  >
+                                    <option>Selecione</option>
                                     <option>Curso Primário</option>
                                     <option>Primeiro Grau Incompleto</option>
                                     <option>Primeiro Grau Completo</option>
