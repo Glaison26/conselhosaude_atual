@@ -1,8 +1,9 @@
 <?php
-include("conexao.php");
+
 $dt_local = DateTime::createFromFormat('d-m-Y', date('d-m-Y'));
 $dt_inicio = DateTime::createFromFormat('d-m-Y', '13-03-2023');
 $dt_fim = DateTime::createFromFormat('d-m-Y', '19-03-2023');
+$c_cpf = '';
 
 
 //if ($dt_local < $dt_inicio) {

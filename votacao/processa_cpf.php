@@ -1,35 +1,49 @@
-<?php 
-include_once "lib_gop.php";
+<?php
+
+include("../conexao.php");
 
 $c_erro = "";
 $c_cpf = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      
-       
-        $_SESSION['cpf'] = $_POST['entracpf']; // variavel de sessão com cpf
-       
-        // sql para verificar se cpf ja existe
-        $c_sql = 'SELECT *  FROM membros where cpf=' . $_POST['entracpf'];
-        $result = $conection->query($c_sql);
-        $registro = $result->fetch_assoc();
-        // se não existrir registro de cpf no banco de dados não permite votar e retorna mensagem de erro
-        if (!$registro) {
-            $c_erro = 'CPF informado não consta no cadastro de eleitores do Fundeb favor verificar!!';
-        } else {
-            // verifico se ja votou
-            $c_sql = 'SELECT * FROM votacao where id_eleitor =' . $registro['id'];
-            $result = $conection->query($c_sql);
-            $registrovoto = $result->fetch_assoc();
-            if ($registrovoto) {
-                $c_erro = 'Eleitor do CPF digitado já votou. Apenas um voto é permitido !!';
-            } else {
-                // passou pelos teste chamo arquivo para votar com os dados
-                header('location: /fundeb/votacao.php?id=' . $registro['id']); // passo id achada como parametro
-            }
-        }
+
+
+    $_SESSION['cpf'] = $_POST['entracpf']; // variavel de sessão com cpf
+
+    // sql para verificar se cpf ja existe
+    $c_sql = 'SELECT id FROM cadastro where sus_cpf=' . $_POST['entracpf'] . ' or ' . ' trabsus_cpf=' . $_POST['entracpf'] .
+        ' or ' . ' org_cnpj=' . $_POST['entracpf'];
+    $result_cadastro = $conection->query($c_sql);
+    $registro2 = $result_cadastro->fetch_assoc();
+    //echo $registro;
+    //die();
+    $id_eleitor = $registro2['id'];
+    // se não existrir registro de cpf no banco de dados não permite votar e retorna mensagem de erro
+    if (!$registro2) {
+        // exibo mensagem de erro dem javascript e retorno para tela de entrada de cpf
+        $c_erro = 'CPF/CNPJ informado não existe no cadastro de eleitores. Favor verificar!!';
+        $c_cpf = $_POST['entracpf'];
+        // mensagem de erro para tela de entrada de cpf
+        echo "<script>
+                alert('$c_erro');
+                window.location.href = 'cpf_votacao.php';
+                </script>";
+    } else {
         // verifico se ja votou
-        // passou pelos teste chamo arquivo para votar com os dados
-        header('location: /fundeb/votacao.php?id=' . $registro['id']); // passo id achada como parametro
+        $c_sql = 'SELECT * FROM votacao where id_eleitor =' . $id_eleitor;
+        $result = $conection->query($c_sql);
+        $registrovoto = $result->fetch_assoc();
+        if ($registrovoto) {
+            $c_erro = 'CPF/CNPJ informado já realizou a votação. Não é permitido votar mais de uma vez!!';
+            $c_cpf = $_POST['entracpf'];
+            // mensagem de erro para tela de entrada de cpf
+            echo "<script>
+                alert('$c_erro');
+                window.location.href = 'cpf_votacao.php';
+                </script>";
+        } else {
+            // passou pelos teste chamo arquivo para votar com os dados
+            header('location: /conselhosaude/votacao.php?id=' . $id_eleitor); // passo id achada como parametro
+        }
+    }
 }
-?>
