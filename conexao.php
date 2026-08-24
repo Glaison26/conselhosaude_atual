@@ -8,6 +8,6 @@ $database = "eleicaosaude";
 $conection = new mysqli($servername, $username, $password, $database);
 // checo erro na conexão
 if ($conection->connect_error) {
-    die("Erro na Conexão com o Banco de Dados!! " . $conection->connect_error);
+    die("Erro na Conexão com o Banco de Dados! ! " . $conection->connect_error);
 }
 ?>
