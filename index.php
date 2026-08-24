@@ -43,11 +43,12 @@
         <nav class="navbar ">
             <div class="container-fluid" class="row col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
                 <br>
+                <!-- botão para Inscrição -->
                 <a id="insc" class="btn btn-success btn-lg" href="/conselhosaude/segmento.php"><span class="glyphicon glyphicon-edit"></span> Fazer Inscrição</a>
-              
+                <!-- botão para Votação -->
+                <a id="vot" class="btn btn-primary btn-lg" href="/conselhosaude/votacao/cpf_votacao.php"><span class="glyphicon glyphicon-circle-arrow-right"></span> Realizar Votação</a> 
             </div>
         </nav>
-
 
     </div>
 

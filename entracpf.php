@@ -146,12 +146,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 if (($_SESSION['c_segmento'] == "1") || (($_SESSION['c_segmento'] == "2"))) {
                     echo '<label class="col-sm-2 col-form-label">Informe seu CPF</label>' .
                         '<div class="col-sm-2">' .
-                        '<input type="text" maxlength="11" placeholder="apenas números" class="form-control" name="entracpf"' . '>' .
+                        '<input type="text" required maxlength="11" placeholder="apenas números" class="form-control" name="entracpf"' . '>' .
                         '</div>';
                 } else {
                     echo '<label class="col-sm-2 col-form-label">Informe o CNPJ</label>' .
                         '<div class="col-sm-2">' .
-                        '<input type="text" maxlength="18" placeholder="apenas números" class="form-control" name="entracpf"' . '>' .
+                        '<input type="text" required maxlength="18" placeholder="apenas números" class="form-control" name="entracpf"' . '>' .
                         '</div>';
                 }
                 ?>
