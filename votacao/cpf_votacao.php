@@ -56,13 +56,13 @@ session_start();
             <div class="row mb-3">
                 <div class="container">
                     <div class="alert alert-success">
-                        <strong>Digite o CPF cadastrado para votação e clique em continuar.</strong>
+                        <strong>Digite o CPF/CNPJ cadastrado para votação e clique em continuar.</strong>
                     </div>
                 </div>
                 <br>
-                <label class="col-sm-2 col-form-label">Informe seu CPF</label>
+                <label class="col-sm-2 col-form-label">Informe seu CPF/CNPJ</label>
                 <div class="col-sm-2">
-                    <input type="text" required maxlength="11" placeholder="apenas números" class="form-control" name="entracpf" value="<?php echo $c_cpf; ?>">
+                    <input type="text" required maxlength="14" placeholder="apenas números" class="form-control" name="entracpf" value="<?php echo $c_cpf; ?>">
                 </div>
             </div>
             <br>
@@ -71,7 +71,7 @@ session_start();
                 <div class="container-fluid">
                     <br>
                     <button type="submit" class="btn btn-primary"><span class='glyphicon glyphicon-circle-arrow-right'></span> Continuar</button>
-                    <a class='btn btn-danger' href='/fundeb/index.php'><span class='glyphicon glyphicon-remove'></span> Cancelar</a>
+                    <a class='btn btn-danger' href='/conselhosaude/index.php'><span class='glyphicon glyphicon-remove'></span> Cancelar</a>
 
                 </div>
             </nav>
