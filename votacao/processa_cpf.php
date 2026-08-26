@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </script>";
     } else {
         // verifico se ja votou
-        $c_sql = 'SELECT * FROM votacao where id_eleitor =' . $id_eleitor;
+        $c_sql = 'SELECT * FROM votos where id_eleitor =' . $id_eleitor;
         $result = $conection->query($c_sql);
         $registrovoto = $result->fetch_assoc();
         if ($registrovoto) {
@@ -44,7 +44,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </script>";
         } else {
             // passou pelos teste chamo arquivo para votar com os dados
-            header('location: /conselhosaude/votacao.php?id=' . $id_eleitor); // passo id achada como parametro
+            //header('location: /conselhosaude/votacao/votacao.php?id=' . $id_eleitor); // passo id achada como parametro
+
+            $sql = "SELECT categoria FROM cadastro WHERE id = $id_eleitor";
+            $result = mysqli_query($conection, $sql);
+            if (!$result) {
+                die("Erro na consulta: " . mysqli_error($conection));
+            }
+            $cat_usuario = mysqli_fetch_assoc($result);
+
+
+            if($cat_usuario['categoria'] == 1) {
+                header('location: /conselhosaude/votacao/votacao_sus.php?id=' . $id_eleitor);
+            } elseif($cat_usuario['categoria'] == 2) {
+                header('location: /conselhosaude/votacao/votacao_trabsus.php?id=' . $id_eleitor);
+            } elseif($cat_usuario['categoria'] == 3) {
+                header('location: /conselhosaude/votacao/votacao_ong.php?id=' . $id_eleitor);
+            } else {
+                $c_erro = 'Categoria do usuário não reconhecida. Contate o administrador.';
+                echo "<script>
+                    alert('$c_erro');
+                    window.location.href = 'cpf_votacao.php';
+                    </script>";
+
+            }
+
+
         }
     }
 }
