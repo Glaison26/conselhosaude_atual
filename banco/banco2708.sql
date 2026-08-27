@@ -1,0 +1,96 @@
+-- --------------------------------------------------------
+-- Servidor:                     127.0.0.1
+-- Versão do servidor:           8.0.30 - MySQL Community Server - GPL
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              12.1.0.6537
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Copiando estrutura do banco de dados para eleicaosaude
+CREATE DATABASE IF NOT EXISTS `eleicaosaude` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `eleicaosaude`;
+
+-- Copiando estrutura para tabela eleicaosaude.cadastro
+CREATE TABLE IF NOT EXISTS `cadastro` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `CATEGORIA` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CANDIDATO` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `SUS_UNIDADE` varchar(80) DEFAULT NULL,
+  `SUS_NOME` varchar(120) DEFAULT NULL,
+  `SUS_RG` varchar(15) DEFAULT NULL,
+  `SUS_CPF` varchar(11) DEFAULT NULL,
+  `SUS_DATANASC` date DEFAULT NULL,
+  `SUS_ENDER` varchar(100) DEFAULT NULL,
+  `SUS_BAIRRO` varchar(100) DEFAULT NULL,
+  `SUS_CARTAOSUS` varchar(15) DEFAULT NULL,
+  `SUS_NATURALIDADE` varchar(50) DEFAULT NULL,
+  `SUS_ESCOLARIDADE` varchar(50) DEFAULT NULL,
+  `TRABSUS_NOME` varchar(120) DEFAULT NULL,
+  `TRABSUS_RG` varchar(15) DEFAULT NULL,
+  `TRABSUS_CPF` varchar(11) DEFAULT NULL,
+  `TRABSUS_DATANASC` date DEFAULT NULL,
+  `TRABSUS_ENDER` varchar(100) DEFAULT NULL,
+  `TRABSUS_BAIRRO` varchar(100) DEFAULT NULL,
+  `TRASUS_ESTABELECIMENTO` varchar(100) DEFAULT NULL,
+  `TRABSUS_ENDERLOCALTRAB` varchar(100) DEFAULT NULL,
+  `TRAB_SUS_VINCULO` varchar(80) DEFAULT NULL,
+  `TRABSUS_ESCOLARIDADE` varchar(50) DEFAULT NULL,
+  `TRASUS_CARGO` varchar(80) DEFAULT NULL,
+  `ORG_NOMEORG` varchar(100) DEFAULT NULL,
+  `ORG_ENDERORG` varchar(100) DEFAULT NULL,
+  `ORG_TELEFONE` varchar(15) DEFAULT NULL,
+  `ORG_EMAIL` varchar(150) DEFAULT NULL,
+  `ORG_CNPJ` varchar(14) DEFAULT NULL,
+  `ORG_FUNDACAO` date DEFAULT NULL,
+  `ORG_NOMEREPRESENTANTE` varchar(120) DEFAULT NULL,
+  `ORG_ENDERREPRE` varchar(100) DEFAULT NULL,
+  `ORG_FONEREPRE` varchar(15) DEFAULT NULL,
+  `ORG_EMAILREPRE` varchar(150) DEFAULT NULL,
+  `ORG_ESCOLARIDADEREPRE` varchar(50) DEFAULT NULL,
+  `ORG_RGREPRE` varchar(15) DEFAULT NULL,
+  `ORG_CPFREPRE` varchar(11) DEFAULT NULL,
+  `ORG_DATANASCREPRE` date DEFAULT NULL,
+  `ORG_CARGOREPRE` varchar(80) DEFAULT NULL,
+  `APRESENTACAO` blob,
+  `FOTO` varchar(255) DEFAULT NULL,
+  `VOTOU` char(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela eleicaosaude.cadastro: ~0 rows (aproximadamente)
+INSERT INTO `cadastro` (`ID`, `CATEGORIA`, `CANDIDATO`, `SUS_UNIDADE`, `SUS_NOME`, `SUS_RG`, `SUS_CPF`, `SUS_DATANASC`, `SUS_ENDER`, `SUS_BAIRRO`, `SUS_CARTAOSUS`, `SUS_NATURALIDADE`, `SUS_ESCOLARIDADE`, `TRABSUS_NOME`, `TRABSUS_RG`, `TRABSUS_CPF`, `TRABSUS_DATANASC`, `TRABSUS_ENDER`, `TRABSUS_BAIRRO`, `TRASUS_ESTABELECIMENTO`, `TRABSUS_ENDERLOCALTRAB`, `TRAB_SUS_VINCULO`, `TRABSUS_ESCOLARIDADE`, `TRASUS_CARGO`, `ORG_NOMEORG`, `ORG_ENDERORG`, `ORG_TELEFONE`, `ORG_EMAIL`, `ORG_CNPJ`, `ORG_FUNDACAO`, `ORG_NOMEREPRESENTANTE`, `ORG_ENDERREPRE`, `ORG_FONEREPRE`, `ORG_EMAILREPRE`, `ORG_ESCOLARIDADEREPRE`, `ORG_RGREPRE`, `ORG_CPFREPRE`, `ORG_DATANASCREPRE`, `ORG_CARGOREPRE`, `APRESENTACAO`, `FOTO`, `VOTOU`) VALUES
+	(9, '1', 'S', 'Regional Ana Lúcia', 'Maria da Silva', '56546', '69551022653', '2000-10-23', 'Rua da Intendencia 316', 'Centro', '456', 'Brasileira', 'Segundo Grau Completo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, _binary 0x43616e64696461746120646f20737573, '9A7E429F-2ABD-44B8-A0A3-941FA210559E.jpeg1036.jpeg', NULL),
+	(10, '1', 'N', 'Regional Ana Lúcia', 'Aurora Cristiane das Neves', '386057928', '18749893114', '2000-10-20', 'Rua da Intendencia 316', 'Centro', '345432', 'Brasileira', 'Superior Completo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(11, '2', 'S', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Mateus Davi Moura', '309233550', '26971577515', '1999-03-20', 'Rua da Intendencia 316', 'Centro', 'UPA', 'Rua da Intendencia 316', 'CLT', 'Segundo Grau Incompleto', 'Enfermeiro', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, _binary 0x63616e64696461746f20706172612074726162616c6861646f7220737573, 'WhatsApp Image 2023-06-20 at 13.39.30.jpeg6705.png', NULL),
+	(12, '2', 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Melissa Benedita Marcela Duarte', '278523183', '61175347795', '1998-03-23', 'Rua da Intendencia 316', 'Centro', 'Posto de Saúde', 'Rua da Intendencia 316', 'CLT', 'Segundo Grau Completo', 'Administrativo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(13, '1', 'S', 'Regional Ana Lúcia', 'José Edson Pedro Henrique Souza', '546546', '87392597817', '1980-03-30', 'Rua da Intendencia 316', 'Centro', '45555', 'Brasileira', 'Superior Completo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, _binary 0x536567756e646f2063616e64696461746f20646f20737573, 'WhatsApp Image 2023-06-20 at 12.33.23.jpeg3099.png', NULL),
+	(14, '2', 'S', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Emanuelly Alícia Carla Pinto', '4565', '08424429958', '2001-05-26', 'Rua da Intendencia 316', 'Centro', 'UPA', 'Rua da Intendencia 316', 'CLT', 'Primeiro Grau Completo', 'Administrativo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, _binary 0x63616e64696461746f2074726162616c6861646f72207375732031, 'baby yoda.jpg', NULL);
+
+-- Copiando estrutura para tabela eleicaosaude.votos
+CREATE TABLE IF NOT EXISTS `votos` (
+  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `id_eleitor` int DEFAULT NULL,
+  `id_candidato` int DEFAULT NULL,
+  `DATA` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Copiando dados para a tabela eleicaosaude.votos: ~0 rows (aproximadamente)
+INSERT INTO `votos` (`id`, `id_eleitor`, `id_candidato`, `DATA`) VALUES
+	(0000000009, 9, 9, '2026-08-27 13:53:08'),
+	(0000000010, 13, 13, '2026-08-27 16:22:34');
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
