@@ -1,0 +1,86 @@
+-- --------------------------------------------------------
+-- Servidor:                     127.0.0.1
+-- Versão do servidor:           8.4.3 - MySQL Community Server - GPL
+-- OS do Servidor:               Win64
+-- HeidiSQL Versão:              12.8.0.6908
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Copiando estrutura do banco de dados para eleicaosaude
+CREATE DATABASE IF NOT EXISTS `eleicaosaude` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `eleicaosaude`;
+
+-- Copiando estrutura para tabela eleicaosaude.cadastro
+CREATE TABLE IF NOT EXISTS `cadastro` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `CATEGORIA` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `CANDIDATO` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `SUS_UNIDADE` varchar(80) DEFAULT NULL,
+  `SUS_NOME` varchar(120) DEFAULT NULL,
+  `SUS_RG` varchar(15) DEFAULT NULL,
+  `SUS_CPF` varchar(11) DEFAULT NULL,
+  `SUS_DATANASC` date DEFAULT NULL,
+  `SUS_ENDER` varchar(100) DEFAULT NULL,
+  `SUS_BAIRRO` varchar(100) DEFAULT NULL,
+  `SUS_CARTAOSUS` varchar(15) DEFAULT NULL,
+  `SUS_NATURALIDADE` varchar(50) DEFAULT NULL,
+  `SUS_ESCOLARIDADE` varchar(50) DEFAULT NULL,
+  `TRABSUS_NOME` varchar(120) DEFAULT NULL,
+  `TRABSUS_RG` varchar(15) DEFAULT NULL,
+  `TRABSUS_CPF` varchar(11) DEFAULT NULL,
+  `TRABSUS_DATANASC` date DEFAULT NULL,
+  `TRABSUS_ENDER` varchar(100) DEFAULT NULL,
+  `TRABSUS_BAIRRO` varchar(100) DEFAULT NULL,
+  `TRASUS_ESTABELECIMENTO` varchar(100) DEFAULT NULL,
+  `TRABSUS_ENDERLOCALTRAB` varchar(100) DEFAULT NULL,
+  `TRAB_SUS_VINCULO` varchar(80) DEFAULT NULL,
+  `TRABSUS_ESCOLARIDADE` varchar(50) DEFAULT NULL,
+  `TRASUS_CARGO` varchar(80) DEFAULT NULL,
+  `ORG_NOMEORG` varchar(100) DEFAULT NULL,
+  `ORG_ENDERORG` varchar(100) DEFAULT NULL,
+  `ORG_TELEFONE` varchar(15) DEFAULT NULL,
+  `ORG_EMAIL` varchar(150) DEFAULT NULL,
+  `ORG_CNPJ` varchar(14) DEFAULT NULL,
+  `ORG_FUNDACAO` date DEFAULT NULL,
+  `ORG_NOMEREPRESENTANTE` varchar(120) DEFAULT NULL,
+  `ORG_ENDERREPRE` varchar(100) DEFAULT NULL,
+  `ORG_FONEREPRE` varchar(15) DEFAULT NULL,
+  `ORG_EMAILREPRE` varchar(150) DEFAULT NULL,
+  `ORG_ESCOLARIDADEREPRE` varchar(50) DEFAULT NULL,
+  `ORG_RGREPRE` varchar(15) DEFAULT NULL,
+  `ORG_CPFREPRE` varchar(11) DEFAULT NULL,
+  `ORG_DATANASCREPRE` date DEFAULT NULL,
+  `ORG_CARGOREPRE` varchar(80) DEFAULT NULL,
+  `APRESENTACAO` blob,
+  `FOTO` varchar(255) DEFAULT NULL,
+  `VOTOU` char(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Exportação de dados foi desmarcado.
+
+-- Copiando estrutura para tabela eleicaosaude.votos
+CREATE TABLE IF NOT EXISTS `votos` (
+  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `id_eleitor` int DEFAULT NULL,
+  `id_candidato` int DEFAULT NULL,
+  `DATA` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Exportação de dados foi desmarcado.
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
