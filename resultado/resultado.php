@@ -1,13 +1,12 @@
 <?php
 include("../conexao.php");
+//WHERE cadastro.CATEGORIA=1
 // montagem de sql para apuração de votos por segmento na tabela votos, considerando o campo id_candidato e id_eleitor, agrupando por segmento e candidato, e contando os votos
-$sql = "SELECT count(votos.id) as votos, cadastro.SUS_NOME AS cadidato_sus, cadastro.CATEGORIA FROM votos 
+$sql = "SELECT count(votos.id) as votos, cadastro.SUS_NOME AS cadidato_sus, cadastro.TRABSUS_NOME as trabsus_nome, cadastro.ORG_NOMEORG as org_nomeorg, cadastro.CATEGORIA FROM votos 
 JOIN cadastro ON votos.id_candidato=cadastro.ID
-WHERE cadastro.CATEGORIA=1
 GROUP BY  votos.id_candidato";
 $result = $conection->query($sql);
-$registro = $result->fetch_assoc();
-
+$segmentos = [];
 
 // Substitua os valores abaixo pelos resultados apurados no banco de dados.
 // Para cada segmento, você deve consultar o banco de dados e preencher os arrays com os candidatos e seus respectivos votos.
@@ -28,13 +27,12 @@ foreach ($result as $row) {
     if (!isset($segmentos[$segmento])) {
         $segmentos[$segmento] = [];
     }
+    // adiciona o candidatos e seus votos aos tres segmentos correspondentes dentro do array $segmentos
     $segmentos[$segmento][] = [
-        'candidato' => $row['cadidato_sus'],
-        'votos' => $row['votos']
+        'candidato' => $row['cadidato_sus'] ?: $row['trabsus_nome'] ?: $row['org_nomeorg'],
+        'votos' => (int)$row['votos']
     ];
 }
-// monto o array de cores para os gráficos, e calculo o total de votos por segmento e o total geral
-
 
 
 $cores = ['#2563eb', '#16a34a', '#f59e0b', '#dc2626', '#7c3aed', '#0891b2'];
@@ -183,8 +181,49 @@ $totalGeral = array_sum($totais);
                 <div class="card"><small><?= htmlspecialchars($nome) ?></small><strong><?= number_format($total, 0, ',', '.') ?></strong></div>
             <?php endforeach; ?>
         </section>
-
-
+        <!-- montagem dos gráficos de pizza para cada segmento -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                <?php foreach ($segmentos as $nome => $resultados):
+                    $id = 'chart_' . substr(md5($nome), 0, 8);
+                    $data = json_encode(array_column($resultados, 'votos'), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+                    $labels = json_encode(array_column($resultados, 'candidato'), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+                    $backgroundColors = json_encode(array_slice($cores, 0, count($resultados)));
+                ?>
+                    new Chart(document.getElementById('<?= $id ?>'), {
+                        type: 'pie',
+                        data: {
+                            labels: <?= $labels ?>,
+                            datasets: [{
+                                data: <?= $data ?>,
+                                backgroundColor: <?= $backgroundColors ?>,
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            let label = context.label || '';
+                                            let value = context.raw || 0;
+                                            let total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                            let percentage = total ? (value / total * 100).toFixed(1) : 0;
+                                            return `${label}: ${value} votos (${percentage}%)`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                <?php endforeach; ?>
+            });
+        </script>
+        <!-- exibição dos gráfidos com os resultados -->
+         
 
         <section class="grid">
             <?php foreach ($segmentos as $nome => $resultados):
